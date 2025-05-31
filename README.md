@@ -101,6 +101,7 @@ Ensure the `Prometheus server` and `yapg` instance can communicate.
 - [X] Prometheus `/metrics` endpoint with auto-cleanup
 - [ ] Helm chart with bundled Redis
 - [ ] Authentication/Authorization for metrics push
+- [ ] Authentication/Authorization for reaching redis
 - [ ] Multi-tenancy with labels
 
 
