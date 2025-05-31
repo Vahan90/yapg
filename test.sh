@@ -2,7 +2,7 @@
 
 set -e
 
-# Push a single metric line to the sink
+# Push a single metric line to yapg
 echo "Pushing metrics..."
 curl -X POST http://localhost:9091/push --data-binary @- <<EOF
 event_processing_time_seconds{event_id="test123"} 321
