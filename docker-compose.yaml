@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+  metrics-sink:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: metrics-sink
+    ports:
+      - "9091:9091"
+    environment:
+      - REDIS_ADDR=redis:6379
+    depends_on:
+      - redis
+# Optional Prometheus config
+#  prometheus:
+#    image: prom/prometheus
+#    volumes:
+#      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+#    command:
+#      - '--config.file=/etc/prometheus/prometheus.yml'
+#    ports:
+#      - "9090:9090"
